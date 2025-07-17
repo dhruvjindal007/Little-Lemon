@@ -1,0 +1,150 @@
+nav {
+    background-color: #333;
+    padding: 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eb9d45;
+    padding: 1rem;
+    text-align: center;
+}
+
+.logo {
+    width: 250px; /* Adjust based on your design */
+    height: auto;
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-item a:hover {
+    color: #ffcc00;
+}
+
+.call-to-action {
+    background-color: #ffcc00;
+    text-align: center;
+    padding: 2rem;
+    color: #333;
+}
+
+.call-to-action button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.call-to-action button:hover {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+/* .specials {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.specials ul {
+    list-style: none;
+    padding: 0;
+}
+
+.specials li {
+    margin-bottom: 1rem;
+}
+
+.specials h3 {
+    color: #ffcc00;
+}
+
+.chicago {
+    padding: 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.chicago h2 {
+    color: #333;
+} */
+form {
+    background-color: #f8f9fa; /* Light background color for the form */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding around the form */
+    margin: 20px auto; /* Center form with auto margins */
+    width: 300px; /* Set form width */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  /* Form label styling */
+  form label {
+    font-weight: bold; /* Make labels bold */
+    color: #333; /* Dark text color */
+    font-size: 14px; /* Adjust font size */
+    margin-bottom: 5px;
+  }
+  
+  /* Form input and select styling */
+  form input,
+  form select {
+    padding: 10px; /* Add padding inside inputs */
+    border: 1px solid #ccc; /* Subtle border for inputs */
+    border-radius: 4px; /* Rounded corners for inputs */
+    font-size: 14px; /* Font size for input text */
+    width: 100%; /* Full width for inputs */
+    margin-bottom: 15px; /* Spacing between inputs */
+    box-sizing: border-box; /* Include padding and border in width */
+  }
+  
+  /* Input focus effect */
+  form input:focus,
+  form select:focus {
+    border-color: #ff7f50; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0px 0px 5px rgba(255, 127, 80, 0.5); /* Add shadow on focus */
+  }
+  
+  /* Submit button styling */
+  form input[type="submit"] {
+    background-color: #ff7f50; /* Coral background for the button */
+    color: white; /* White text */
+    font-size: 16px; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 15px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  /* Submit button hover effect */
+  form input[type="submit"]:hover {
+    background-color: #f4eb41; /* Darker coral on hover */
+  }
+  
+  /* Center align text in form */
+  form input[type="submit"]:focus {
+    outline: none; /* Remove outline on focus */
+  }
+  
+  /* Additional responsive styling */
+  @media (max-width: 600px) {
+    form {
+      width: 90%; /* Full width on small screens */
+    }
+  }
