@@ -7,15 +7,35 @@ const BookingPage = () => {
   const [occasion, setOccasion] = useState("");
   const [availableTimes] = useState(["13:00", "15:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = { date, time, guests, occasion };
-    console.log("Form Data Submitted:", formData);
     if (!date || !time || !guests || !occasion) {
       alert("⚠️ Please fill out all fields before submitting your reservation.");
       return;
     }
-    alert("✅ Your restaurant booking has been confirmed!");
+
+    const formData = { date, time, guests, occasion };
+
+    try {
+      const response = await fetch("http://localhost:8000/api/tables/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // include token if auth is required
+          // "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("✅ Your restaurant booking has been confirmed!");
+      } else {
+        const errorData = await response.json();
+        alert("❌ Booking failed: " + JSON.stringify(errorData));
+      }
+    } catch (error) {
+      alert("❌ Error submitting form: " + error.message);
+    }
   };
 
   return (

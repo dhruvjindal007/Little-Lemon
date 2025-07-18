@@ -63,7 +63,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'LittleLemon',
         'USER': 'root',
-        'PASSWORD': 'Dhruv@1344',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
@@ -98,7 +98,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',  # Change to 'AllowAny' if needed
+        'rest_framework.permissions.AllowAny',
     ],
 }
 
@@ -110,7 +110,7 @@ DJOSER = {
     },
 }
 
-# ✅ Ensure CORS is properly configured
+# ✅ CORS is properly configured
 CORS_ALLOW_ALL_ORIGINS = True  # Only for development!
 
 # ✅ Check if a Custom User Model is Set
