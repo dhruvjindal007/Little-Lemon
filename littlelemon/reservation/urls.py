@@ -12,7 +12,6 @@ router.register(r'tables', BookingViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('api/', include(router.urls)),
-    path('booking/', include(router.urls)),
     path('menu-items/', views.MenuItemsView.as_view()),
     path('menu-items/<int:pk>', views.SingleMenuItemView.as_view()),
     path('message/', views.msg),

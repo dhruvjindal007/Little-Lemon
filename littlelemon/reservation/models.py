@@ -1,13 +1,15 @@
 from django.db import models
+import datetime
 
 class Booking(models.Model):
     date = models.DateField()
-    time = models.TimeField()
+    time = models.TimeField(default=datetime.time(12, 0))
     guests = models.IntegerField()
-    occasion = models.CharField(max_length=200)
+    occasion = models.CharField(max_length=200,default="Casual")
 
     def __str__(self):
-        return f"{self.name} - {self.booking_date}"
+        return f"{self.date} at {self.time} for {self.guests} guest(s) - {self.occasion}"
+
 
 class Menu(models.Model):
     id = models.AutoField(primary_key=True)

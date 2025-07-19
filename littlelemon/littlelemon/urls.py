@@ -13,7 +13,6 @@ urlpatterns = [
     path('restaurant/chatbot/', ask_chatbot),
     path('restaurant/', include('reservation.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('restaurant/booking/', include(router.urls)),
     path('api/', include('reservation.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
