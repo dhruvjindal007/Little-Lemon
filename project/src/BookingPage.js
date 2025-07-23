@@ -7,8 +7,11 @@ const BookingPage = () => {
   const [occasion, setOccasion] = useState("");
   const [availableTimes] = useState(["13:00", "15:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]);
 
+  const token = localStorage.getItem("authToken");  // ✅ Get the stored token
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (!date || !time || !guests || !occasion) {
       alert("⚠️ Please fill out all fields before submitting your reservation.");
       return;
@@ -17,12 +20,11 @@ const BookingPage = () => {
     const formData = { date, time, guests, occasion };
 
     try {
-      const response = await fetch("http://localhost:8000/api/tables/", {
+      const response = await fetch("http://localhost:8000/restaurant/tables/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // include token if auth is required
-          // "Authorization": `Bearer ${token}`,
+          "Authorization": `Token ${token}`,
         },
         body: JSON.stringify(formData),
       });
