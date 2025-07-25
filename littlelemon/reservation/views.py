@@ -14,26 +14,42 @@ import requests
 @csrf_exempt
 def ask_chatbot(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
-        user_input = data.get("question", "")
-        menu_text = data.get("menu", "")
-
-        prompt = f"""You are a helpful restaurant assistant. Here's the current menu:\n{menu_text}\n\nUser: {user_input}"""
-
         try:
+            data = json.loads(request.body)
+            menu_text = data.get("menu", "")
+            user_message = data.get("message", "")
+
+            # Add a helpful prompt prefix
+            prompt = f"""You are a helpful restaurant assistant. Only answer about dishes, menu, or food queries.
+Menu:\n{menu_text}\n
+User: {user_message}
+Assistant:"""
+
+            # Send the prompt to Ollama (Phi model)
             response = requests.post(
                 "http://localhost:11434/api/generate",
                 json={
-                    "model": "gemma:2b",
+                    "model": "phi",
                     "prompt": prompt,
                     "stream": False
                 }
             )
-            result = response.json()
-            return JsonResponse({"response": result.get("response", "Sorry, I couldn't respond.")})
-        except Exception as e:
-            return JsonResponse({"error": str(e)}, status=500)
 
+            # Debug: print the raw response from Ollama
+            print("Ollama response text:", response.text)
+
+            if response.status_code == 200:
+                result = response.json()
+                reply = result.get("response", "Sorry, I didn't get that.")
+                return JsonResponse({"reply": reply})
+            else:
+                return JsonResponse({"error": "Model failed to respond."}, status=500)
+
+        except Exception as e:
+            print("Chatbot error:", e)
+            return JsonResponse({"error": "An error occurred while processing your request."}, status=500)
+
+    return JsonResponse({"error": "Invalid request method."}, status=405)
 
 def index(request):
     return render(request, 'project/index.html', {})
