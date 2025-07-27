@@ -1,11 +1,16 @@
 from pathlib import Path
 import os
 
+NAME = os.environ.get('NAME')
+USER = os.environ.get('USER')
+PASSWORD = os.environ.get('DB_PASSWORD')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security
-SECRET_KEY = 'django-insecure-(s)=#y3v%fs83v)r8b(4h7o)n60+=au!e&b30#&givys-!qs3f'
+SECRET_KEY = SECRET_KEY
 DEBUG = True
 ALLOWED_HOSTS = []
 
@@ -61,9 +66,9 @@ WSGI_APPLICATION = 'littlelemon.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'LittleLemon',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': NAME,
+        'USER': USER,
+        'PASSWORD': PASSWORD,
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {

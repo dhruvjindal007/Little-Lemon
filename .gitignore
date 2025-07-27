@@ -8,6 +8,7 @@ venv/
 *.log
 *.sqlite3
 .DS_Store
+.env
 
 # VS Code
 .vscode/
