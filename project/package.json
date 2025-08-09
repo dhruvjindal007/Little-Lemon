@@ -10,7 +10,8 @@
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^7.1.1",
     "react-scripts": "^5.0.1",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "web-vitals": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
