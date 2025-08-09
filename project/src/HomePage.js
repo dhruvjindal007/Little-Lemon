@@ -180,7 +180,6 @@ function HomePage() {
       </section>
       {/* Chatbot Section */}
       <section className="chatbot-section">
-        <h2>Need Help? Chat with Us!</h2>
         <Chatbot />
       </section>
     </div>

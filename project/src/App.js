@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// remove BrowserRouter import here
+import { Routes, Route } from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
 import Footer from './Footer';
@@ -12,22 +13,26 @@ import MenuPage from './Menu';
 import OrderOnline from './Order';
 import Login from './Login';
 import Signup from './Signup';
+import ChatWidget from "./ChatWidget";
+
 function App() {
   return (
     <>
-      <Header/>
-      <Nav/>
+      <Header />
+      <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/booking" element={<BookingPage />} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/menu" element={<MenuPage/>} />
-        <Route path="/order" element={<OrderOnline/>} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/order" element={<OrderOnline />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
+      <ChatWidget />
       <Footer />
     </>
   );
-};
+}
+
 export default App;

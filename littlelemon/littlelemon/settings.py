@@ -1,10 +1,14 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
-NAME = os.environ.get('NAME')
-USER = os.environ.get('USER')
-PASSWORD = os.environ.get('DB_PASSWORD')
-SECRET_KEY = os.environ.get('SECRET_KEY')
+load_dotenv()
+
+# Load environment variables from .env file
+NAME = os.getenv('NAME')
+USER = os.getenv('USER')
+PASSWORD = os.getenv('PASSWORD')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
